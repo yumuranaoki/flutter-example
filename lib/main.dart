@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import './bottomNavigation.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: RandomWords(),
+      home: MyBottomNavigation(),
     );
   }
 }
