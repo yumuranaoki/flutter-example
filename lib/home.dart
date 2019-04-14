@@ -9,40 +9,17 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
   final _lists = [
-    'Hoge',
-    'Fuga',
-    'Hoge',
-    'Hoge',
-    'Fuga',
-    'Hoge',
-    'Hoge',
-    'Fuga',
-    'Hoge',
-    'Hoge',
-    'Fuga',
-    'Hoge',
-    'Hoge',
-    'Hoge',
-    'Hoge',
-    'Hoge',
-    'Hoge',
-    'Hoge',
-    'Hoge',
-    'Hoge',
-    'Hoge',
-    'Hoge',
-    'Hoge',
-    'Hoge',
-    'Hoge',
-    'Hoge',
-    'Hoge',
-    'Hoge',
+    "https://www.sponichi.co.jp/entertainment/news/2018/02/28/jpeg/20180228s00041000109000p_view.jpg",
+    "https://pbs.twimg.com/profile_images/1038756626025537536/btY4cKrY.jpg",
+    "https://cdn.asagei.com/asagei/uploads/2019/01/20190117_asagei_fujita.jpg",
   ];
+  int _imageIndex = 0;
+  double _startPoint = 0;
+  double _endPoint = 0;
 
   Widget _buildPosts() {
     return ListView.builder(
-      padding: const EdgeInsets.all(16.0),
-      itemCount: _lists.length,
+      itemCount: 5,
       itemBuilder: (context, i) {
         return _buildPostRow(i);
       },
@@ -78,8 +55,17 @@ class HomeState extends State<Home> {
           Container(
             height: 7.0,
           ),
-          Image.network(
-            'https://www.sponichi.co.jp/entertainment/news/2018/02/28/jpeg/20180228s00041000109000p_view.jpg'
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                if (_imageIndex < _lists.length - 1) {
+                  _imageIndex += 1;
+                }
+              });
+            },
+            child: Image.network(
+              _lists[_imageIndex]
+            ),
           ),
           Container(
             height: 7.0,
@@ -112,7 +98,11 @@ class HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text(
+          'instagram',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
       ),
       body: _buildPosts(),
     );

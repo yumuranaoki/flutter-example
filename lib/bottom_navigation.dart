@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './home.dart';
+import './post.dart';
 
 class MyBottomNavigation extends StatefulWidget {
   MyBottomNavigation({Key key}) : super(key: key);
@@ -13,7 +14,7 @@ class _BottomNavigationState extends State<MyBottomNavigation> {
   final _widgetOptions = [
     Home(),
     Text('search'),
-    Text('post'),
+    Post(),
     Text('activity'),
     Text('profile'),
   ];
